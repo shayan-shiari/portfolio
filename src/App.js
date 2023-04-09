@@ -7,14 +7,12 @@ import Gallery from "./pages/gallery/Gallery";
 
 const App = () => {
   return (
-    <div className="w-[1400px]">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/dashboard/posts" element={<Posts />} />
-        <Route path="/dashboard/gallery" element={<Gallery />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard/posts" element={<Posts />} />
+      <Route path="/dashboard/gallery" element={<Gallery />} />
+    </Routes>
   );
 };
 
