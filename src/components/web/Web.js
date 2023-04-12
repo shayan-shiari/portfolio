@@ -3,7 +3,11 @@ import img from "../../assets/images/web.jpg";
 import Shared from "../shared/Shared";
 
 const Web = () => {
-  return <Shared image={img} />;
+  return (
+    <div>
+      <Shared image={img} />
+    </div>
+  );
 };
 
 export default Web;

@@ -3,7 +3,11 @@ import img from "../../assets/images/mobile.jpg";
 import Shared from "../shared/Shared";
 
 const Mobile = () => {
-  return <Shared image={img} />;
+  return (
+    <div>
+      <Shared image={img} />
+    </div>
+  );
 };
 
 export default Mobile;

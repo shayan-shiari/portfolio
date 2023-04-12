@@ -44,11 +44,34 @@ const ContactUs = () => {
             <div className="w-[50%] p-8">
               <h3 className="text-3xl mb-8">Contact Us</h3>
               <form className="flex flex-col gap-y-4 w-[70%] mx-auto">
-                  <input className="rounded-lg p-1" type="text" name="" id="" placeholder="Name"/>
-                  <input className="rounded-lg p-1" type="email" placeholder="Email" />
-                  <input className="rounded-lg p-1" type="text" placeholder="Number" />
-                  <textarea className="rounded-lg p-1 resize-none" placeholder="Message" name="" id="" cols="30" rows="6"></textarea>
-                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded-full">Submit</button>
+                <input
+                  className="rounded-lg p-1"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Name"
+                />
+                <input
+                  className="rounded-lg p-1"
+                  type="email"
+                  placeholder="Email"
+                />
+                <input
+                  className="rounded-lg p-1"
+                  type="text"
+                  placeholder="Number"
+                />
+                <textarea
+                  className="rounded-lg p-1 resize-none"
+                  placeholder="Message"
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="6"
+                ></textarea>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded-full">
+                  Submit
+                </button>
               </form>
             </div>
           </div>

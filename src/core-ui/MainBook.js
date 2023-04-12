@@ -9,7 +9,7 @@ const MainBook = ({ children,open }) => {
   return (
     <>
       <div className="justify-center items-center flex fixed inset-0 z-50 outline-none focus:outline-none">
-        <div className="relative mx-auto w-[82%]">
+        <div className="relative mx-auto w-[1050px]">
           {/*content*/}
           <div className="tet-white py-7 rounded-lg shadow-lg relative w-full h-auto bg-white outline-none focus:outline-none">
             {/*body*/}

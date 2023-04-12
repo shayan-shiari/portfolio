@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { fetchApi } from "../../../services/api";
 
-const AddCategory = ({ open }) => {
+const AddPost = ({ open,fetchPosts }) => {
   const register_url = "admin/post";
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
@@ -9,21 +9,21 @@ const AddCategory = ({ open }) => {
   const [type, setType] = useState();
   const [technologies, setTechnologies] = useState();
   const [image, setImage] = useState();
-  console.log(title, description, link, type, technologies, image);
+
   const formHandler = (e) => {
     e.preventDefault();
-    console.log("sha");
-    const fo = new FormData();
-    fo.append("images", image);
-    console.log(fo);
-    fetchApi(register_url, {
-      title: title,
-      description: description,
-      link: link,
-      type: type,
-      technologie: technologies,
-      image: "sd",
-    }).then((res) => console.log(res));
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("link", link);
+    formData.append("type", type);
+    formData.append("technologies", technologies);
+    formData.append("image", image);
+    fetchApi(register_url, formData,"multi").then((res) => {
+      console.log(res);
+      open(false)
+      fetchPosts()
+    });
   };
 
   return (
@@ -34,63 +34,59 @@ const AddCategory = ({ open }) => {
           <div className="border-0 text-black rounded-lg shadow-lg relative w-full bg-sky-700 outline-none focus:outline-none">
             {/*header*/}
             <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-              <h3 className="text-3xl font-semibold">Add Category</h3>
+              <h3 className="text-3xl font-semibold text-white">
+                Add Category
+              </h3>
             </div>
             {/*body*/}
             <form onSubmit={formHandler}>
               <div className="flex flex-col gap-y-5 p-5">
-                <fieldset className="flex flex-col">
-                  <label htmlFor="">title</label>
+                <fieldset className="flex items-center flex-col">
                   <input
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     className="w-2/3 p-1 rounded"
                     type="text"
-                    placeholder="name"
+                    placeholder="title"
                   />
                 </fieldset>
-                <fieldset className="flex flex-col">
-                  <label htmlFor="">description</label>
+                <fieldset className="flex items-center flex-col">
                   <input
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     className="w-2/3 p-1 rounded"
                     type="text"
-                    placeholder="name"
+                    placeholder="description"
                   />
                 </fieldset>
-                <fieldset className="flex flex-col">
-                  <label htmlFor="">link</label>
+                <fieldset className="flex items-center flex-col">
                   <input
                     value={link}
                     onChange={(e) => setLink(e.target.value)}
                     className="w-2/3 p-1 rounded"
                     type="text"
-                    placeholder="name"
+                    placeholder="link"
                   />
                 </fieldset>
-                <fieldset className="flex flex-col">
-                  <label htmlFor="">type</label>
+                <fieldset className="flex items-center flex-col">
                   <input
                     value={type}
                     onChange={(e) => setType(e.target.value)}
                     className="w-2/3 p-1 rounded"
                     type="text"
-                    placeholder="name"
+                    placeholder="type(1 or 2)"
                   />
                 </fieldset>
-                <fieldset className="flex flex-col">
-                  <label htmlFor="">technologies</label>
+                <fieldset className="flex items-center flex-col">
                   <input
                     value={technologies}
                     onChange={(e) => setTechnologies(e.target.value)}
                     className="w-2/3 p-1 rounded"
                     type="text"
-                    placeholder="name"
+                    placeholder="technologies"
                   />
                 </fieldset>
-                <fieldset className="flex flex-col">
-                  <label htmlFor="">image</label>
+                <fieldset className="flex items-center flex-col">
                   <input
                     onChange={(e) => setImage(e.target.files[0])}
                     type="file"
@@ -125,4 +121,4 @@ const AddCategory = ({ open }) => {
   );
 };
 
-export default AddCategory;
+export default AddPost;
