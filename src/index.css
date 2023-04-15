@@ -248,11 +248,14 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
 }
-.page-text {
-  height: 100%;
-  z-index: 100 !important;
 
+.page-text {
+  height: 70%;
+  z-index: 100 !important;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
   font-size: 80%;
   text-align: justify;
   margin-top: 10px;
@@ -321,4 +324,35 @@ body {
     stroke-dasharray: 50% 0;
     stroke-width: 0;
   }
+}
+
+
+/* cursor */
+* {
+  cursor: none;
+} 
+
+#cursor-dot,
+#cursor-dot-outline {
+  z-index: 999;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+#cursor-dot {
+  width: 22px;
+  height: 22px;
+  background-color: rgba(220,90,90, 1);
+}
+
+#cursor-dot-outline {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(220,90,90, 0.3);
 }

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import PannelWrapper from "../../components/pannel-wrapper/PannelWrapper";
-import AddCategory from "./add-modal/AddPost";
-// import Table from "../../core-ui/Table";
+import AddPost from "./add-modal/AddPost";
+import AddImage from "./add-image/AddImage";
 import { fetchApi } from "../../services/api";
 
 const Posts = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [id,setId] = useState()
   const [data, setData] = useState([]);
 
   const deleteHandler = (id) => {
@@ -62,6 +64,9 @@ const Posts = () => {
                 <th scope="col" class="px-6 py-3">
                   delete
                 </th>
+                <th scope="col" class="px-6 py-3">
+                  add-image
+                </th>
               </tr>
             </thead>
             <tbody className="text-center">
@@ -98,6 +103,17 @@ const Posts = () => {
                         ></ion-icon>
                       </button>
                     </td>
+                    <td>
+                      <button
+                        onClick={() => {
+                          setIsOpen2(true)
+                          setId(item.id)
+                        }}
+                        className="text-green-600 text-2xl"
+                      >
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
@@ -105,7 +121,8 @@ const Posts = () => {
           </table>
         </div>
       </div>
-      {isOpen && <AddCategory fetchPosts={fetchPosts} open={setIsOpen} />}
+      {isOpen && <AddPost fetchPosts={fetchPosts} open={setIsOpen} />}
+      {isOpen2 && <AddImage id={id} fetchPosts={fetchPosts} open={setIsOpen2} />}
     </PannelWrapper>
   );
 };

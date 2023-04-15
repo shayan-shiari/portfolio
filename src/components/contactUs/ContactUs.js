@@ -1,36 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import img from "../../assets/images/contact us.jpg";
 import Shared from "../shared/Shared";
 import BookPage from "../../core-ui/BookPage";
 import HTMLFlipBook from "react-pageflip";
 import MainBook from "../../core-ui/MainBook";
+import emailjs from "@emailjs/browser";
+import toast, { Toaster } from "react-hot-toast";
 
 const ContactUs = () => {
+  const form = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const openHandler = () => {
     setIsOpen(true);
   };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_g9tlya9",
+        "template_c41he48",
+        form.current,
+        "HLmYYA7xmGRU-jOTD"
+      )
+      .then(
+        (result) => {
+          toast.success('Successfully sent!')
+          // console.log(result.text);
+        },
+        (error) => {
+          // console.log(error.text);
+        }
+      );
+  };
+
   return (
     <>
+      <Toaster position="top-center" />
+
       <div onClick={openHandler}>
         <Shared image={img} />
       </div>
       {isOpen && (
         <MainBook open={setIsOpen}>
           <HTMLFlipBook width={500} height={600}>
-            <BookPage number="22"></BookPage>
-            <BookPage number="33"></BookPage>
+            <BookPage number="1"></BookPage>
+            <BookPage number="2"></BookPage>
           </HTMLFlipBook>
           <div className="flex justify-between absolute w-[95%] h-[500px]">
             <div className="p-8 g-red-300 w-[50%]">
-              <h3 className="text-3xl mb-8">Contact Info</h3>
+              <h3 className="text-3xl mb-8 text-blue-400">Contact Info</h3>
               <div className="flex flex-col gap-y-4">
                 <div>
                   <div className="flex items-center text-gray-600">
                     <ion-icon name="mail-outline"></ion-icon>
                     <p>Email</p>
                   </div>
-                  <p>test@gmail.com</p>
+                  <p>suboneteam@gmail.com</p>
                 </div>
                 <div>
                   <div className="flex items-center text-gray-600">
@@ -42,29 +69,36 @@ const ContactUs = () => {
               </div>
             </div>
             <div className="w-[50%] p-8">
-              <h3 className="text-3xl mb-8">Contact Us</h3>
-              <form className="flex flex-col gap-y-4 w-[70%] mx-auto">
+              <h3 className="text-3xl text-blue-400 mb-8">Contact Us</h3>
+              <form
+                form
+                ref={form}
+                onSubmit={sendEmail}
+                className="flex flex-col gap-y-4 w-[70%] mx-auto"
+              >
                 <input
                   className="rounded-lg p-1"
                   type="text"
-                  name=""
+                  name="user_name"
                   id=""
                   placeholder="Name"
                 />
                 <input
                   className="rounded-lg p-1"
                   type="email"
+                  name="user_email"
                   placeholder="Email"
                 />
                 <input
                   className="rounded-lg p-1"
                   type="text"
+                  name="user_number"
                   placeholder="Number"
                 />
                 <textarea
                   className="rounded-lg p-1 resize-none"
                   placeholder="Message"
-                  name=""
+                  name="message"
                   id=""
                   cols="30"
                   rows="6"

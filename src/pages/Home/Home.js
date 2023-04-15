@@ -22,12 +22,22 @@ const Home = () => {
       <span></span>
       <div>
         <svg className="animation" viewBox="0 0 1320 350">
-          <text className="heading-text" x="50%" y="50%" dy=".35em" text-anchor="middle">
+          <text
+            className="heading-text"
+            x="50%"
+            y="50%"
+            dy=".35em"
+            text-anchor="middle"
+          >
             SobeOne Team
           </text>
         </svg>
       </div>
-      <div data-aos-duration="3000" data-aos="zoom-out" className="flex h-[60vh] justify-around items-center gap-x-7 ">
+      <div
+        data-aos-duration="3000"
+        data-aos="zoom-out"
+        className="flex h-[60vh] justify-around items-center gap-x-7 "
+      >
         <AboutUs />
         <ContactUs />
         <Mobile />
