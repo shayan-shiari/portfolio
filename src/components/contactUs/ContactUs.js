@@ -48,10 +48,10 @@ const ContactUs = () => {
             <BookPage number="1"></BookPage>
             <BookPage number="2"></BookPage>
           </HTMLFlipBook>
-          <div className="flex justify-between absolute w-[95%] h-[500px]">
-            <div className="p-8 g-red-300 w-[50%]">
-              <h3 className="text-3xl mb-8 text-blue-400">Contact Info</h3>
-              <div className="flex flex-col gap-y-4">
+          <div className="flex justify-between absolute max-[450px]:bottom-[120px] max-[450px]:right-[20px] w-[95%] h-[500px]">
+            <div className="p-8 max-[450px]:p-4 w-[50%]">
+              <h3 className="text-3xl mb-8 text-blue-400 max-[450px]:text-base">Contact Info</h3>
+              <div className="flex flex-col gap-y-4 max-[450px]:text-[10px]">
                 <div>
                   <div className="flex items-center text-gray-600">
                     <ion-icon name="mail-outline"></ion-icon>
@@ -68,35 +68,35 @@ const ContactUs = () => {
                 </div>
               </div>
             </div>
-            <div className="w-[50%] p-8">
-              <h3 className="text-3xl text-blue-400 mb-8">Contact Us</h3>
+            <div className="w-[50%] p-8 max-[450px]:p-4">
+              <h3 className="text-3xl text-blue-400 mb-8 max-[450px]:text-base">Contact Us</h3>
               <form
                 form
                 ref={form}
                 onSubmit={sendEmail}
-                className="flex flex-col gap-y-4 w-[70%] mx-auto"
+                className="flex flex-col gap-y-4 w-[70%] max-[450px]:w-[130%] mx-auto"
               >
                 <input
-                  className="rounded-lg p-1"
+                  className="shadow appearance-none border rounded-lg p-1 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                   type="text"
                   name="user_name"
                   id=""
                   placeholder="Name"
                 />
                 <input
-                  className="rounded-lg p-1"
+                  className="shadow appearance-none border rounded-lg p-1 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                   type="email"
                   name="user_email"
                   placeholder="Email"
                 />
                 <input
-                  className="rounded-lg p-1"
+                  className="shadow appearance-none border rounded-lg p-1 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                   type="text"
                   name="user_number"
                   placeholder="Number"
                 />
                 <textarea
-                  className="rounded-lg p-1 resize-none"
+                  className="shadow appearance-none border rounded-lg p-1 resize-none focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                   placeholder="Message"
                   name="message"
                   id=""

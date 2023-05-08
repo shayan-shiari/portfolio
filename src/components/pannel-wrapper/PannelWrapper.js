@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../header/Header";
 import Aside from "../aside/Aside";
-import Table from "../../core-ui/Table";
 
 const PannelWrapper = ({ children }) => {
   return (

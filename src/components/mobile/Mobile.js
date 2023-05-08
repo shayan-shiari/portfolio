@@ -40,12 +40,6 @@ const Mobile = () => {
                 {item.attributes.description}
               </BookPage>
             ))}
-            {/* <BookPage number={1}>df</BookPage>
-            <BookPage number={2}>Lorem ipsum...</BookPage>
-            <BookPage number={2}>Lorem ipsum...</BookPage>
-            <BookPage number={2}>Lorem ipsum...</BookPage> */}
-            {/* <BookPage number={2}>Lorem ipsum...</BookPage>
-            <BookPage number={2}>Lorem ipsum...</BookPage> */}
           </HTMLFlipBook>
         </MainBook>
       )}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { fetchApi } from "../../../services/api";
 
-const AddPost = ({ open,fetchPosts }) => {
+const AddPost = ({ open, fetchPosts }) => {
   const register_url = "admin/post";
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
@@ -9,20 +9,20 @@ const AddPost = ({ open,fetchPosts }) => {
   const [type, setType] = useState();
   const [technologies, setTechnologies] = useState();
   const [image, setImage] = useState();
-
+console.log(type);
   const formHandler = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
     formData.append("link", link);
-    formData.append("type", type);
+    formData.append("type", type ? type : "1");
     formData.append("technologies", technologies);
     formData.append("image", image);
-    fetchApi(register_url, formData,"multi").then((res) => {
+    fetchApi(register_url, formData, "multi").then((res) => {
       console.log(res);
-      open(false)
-      fetchPosts()
+      open(false);
+      fetchPosts();
     });
   };
 
@@ -34,9 +34,7 @@ const AddPost = ({ open,fetchPosts }) => {
           <div className="border-0 text-black rounded-lg shadow-lg relative w-full bg-sky-700 outline-none focus:outline-none">
             {/*header*/}
             <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-              <h3 className="text-3xl font-semibold text-white">
-                Add Post
-              </h3>
+              <h3 className="text-3xl font-semibold text-white">Add Post</h3>
             </div>
             {/*body*/}
             <form onSubmit={formHandler}>
@@ -69,13 +67,10 @@ const AddPost = ({ open,fetchPosts }) => {
                   />
                 </fieldset>
                 <fieldset className="flex items-center flex-col">
-                  <input
-                    value={type}
-                    onChange={(e) => setType(e.target.value)}
-                    className="w-2/3 p-1 rounded"
-                    type="text"
-                    placeholder="type(1 or 2)"
-                  />
+                  <select value={type} onChange={(e) => setType(e.target.value)} className="w-2/3">
+                    <option value="1">web</option>
+                    <option value="2">mobile</option>
+                  </select>
                 </fieldset>
                 <fieldset className="flex items-center flex-col">
                   <input

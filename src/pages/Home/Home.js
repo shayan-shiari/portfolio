@@ -20,6 +20,10 @@ const Home = () => {
       <span></span>
       <span></span>
       <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
       <div>
         <svg className="animation" viewBox="0 0 1320 350">
           <text
@@ -36,7 +40,7 @@ const Home = () => {
       <div
         data-aos-duration="3000"
         data-aos="zoom-out"
-        className="flex h-[60vh] justify-around items-center gap-x-7 "
+        className="grid h-[75vh] grid-cols-4 g-red-300 content-center max-[1000px]:grid-cols-2 max-[1000px]:gap-y-16"
       >
         <AboutUs />
         <ContactUs />

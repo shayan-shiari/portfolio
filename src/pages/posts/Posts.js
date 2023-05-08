@@ -3,11 +3,13 @@ import PannelWrapper from "../../components/pannel-wrapper/PannelWrapper";
 import AddPost from "./add-modal/AddPost";
 import AddImage from "./add-image/AddImage";
 import { fetchApi } from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
 const Posts = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
-  const [id,setId] = useState()
+  const [id, setId] = useState();
   const [data, setData] = useState([]);
 
   const deleteHandler = (id) => {
@@ -24,6 +26,10 @@ const Posts = () => {
 
   useEffect(() => {
     fetchPosts();
+
+    if (!JSON.parse(localStorage.getItem("token"))) {
+      navigate("/");
+    }
   }, []);
 
   return (
@@ -43,36 +49,36 @@ const Posts = () => {
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-center text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   title
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   description
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   link
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   type
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   technologies
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   image
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   delete
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   add-image
                 </th>
               </tr>
             </thead>
             <tbody className="text-center">
-              {data.map((item) => {
+              {data.map((item, index) => {
                 return (
-                  <tr>
+                  <tr key={index}>
                     <th
                       scope="row"
                       className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -106,8 +112,8 @@ const Posts = () => {
                     <td>
                       <button
                         onClick={() => {
-                          setIsOpen2(true)
-                          setId(item.id)
+                          setIsOpen2(true);
+                          setId(item.id);
                         }}
                         className="text-green-600 text-2xl"
                       >
@@ -122,7 +128,9 @@ const Posts = () => {
         </div>
       </div>
       {isOpen && <AddPost fetchPosts={fetchPosts} open={setIsOpen} />}
-      {isOpen2 && <AddImage id={id} fetchPosts={fetchPosts} open={setIsOpen2} />}
+      {isOpen2 && (
+        <AddImage id={id} fetchPosts={fetchPosts} open={setIsOpen2} />
+      )}
     </PannelWrapper>
   );
 };
