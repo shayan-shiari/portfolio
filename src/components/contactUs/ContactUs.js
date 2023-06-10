@@ -64,7 +64,7 @@ const ContactUs = () => {
                     <ion-icon name="call-outline"></ion-icon>
                     <p>Phone</p>
                   </div>
-                  <p>09453563467</p>
+                  {/* <p>09453563467</p> */}
                 </div>
               </div>
             </div>

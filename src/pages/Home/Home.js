@@ -40,7 +40,7 @@ const Home = () => {
       <div
         data-aos-duration="3000"
         data-aos="zoom-out"
-        className="grid h-[75vh] grid-cols-4 g-red-300 content-center max-[1000px]:grid-cols-2 max-[1000px]:gap-y-16"
+        className="grid h-[70vh] grid-cols-4 g-red-300 content-center max-[1000px]:grid-cols-2 max-[1000px]:gap-y-16"
       >
         <AboutUs />
         <ContactUs />

@@ -22,7 +22,7 @@ const AboutUs = () => {
         <MainBook open={setIsOpen}>
           <HTMLFlipBook width={500} height={600}>
             <BookPage aboutImage={gif} number={1}>
-              <p className="text-[16px]">
+              <p className="text-[16px] text-gray-600 heading-text">
                 We are a creative programming team. we help people to have good
                 looking website and app with amazing technologies.{" "}
               </p>

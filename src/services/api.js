@@ -1,5 +1,5 @@
 import axios from "axios";
-const main_url = "http://127.0.0.1:8000/api";
+const main_url = "https://subone.iran.liara.run/api";
 
 export const fetchApi = async (url, body, type) => {
   let lastResult;
