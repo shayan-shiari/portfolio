@@ -33,7 +33,7 @@ const Home = () => {
             dy=".35em"
             text-anchor="middle"
           >
-            SobeOne Team
+            SubOne Team
           </text>
         </svg>
       </div>
