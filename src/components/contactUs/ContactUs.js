@@ -80,7 +80,6 @@ const ContactUs = () => {
                   className="shadow appearance-none border rounded-lg p-1 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                   type="text"
                   name="user_name"
-                  id=""
                   placeholder="Name"
                 />
                 <input

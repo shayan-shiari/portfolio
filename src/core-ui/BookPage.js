@@ -12,15 +12,15 @@ const BookPage = React.forwardRef((props, ref) => {
             <div className="flex justify-center mb-3">
               <img
                 className="w-[35%] rounded shadow-xl"
-                src={`http://127.0.0.1:8000/${props.image}`}
+                src={`${props.image}`}
                 alt="main"
               />
             </div>
             <div className="flex justify-center gap-x-5">
               {props.gallery.map((item) => (
                 <img
-                  className="w-[25%] rounded shadow-xl"
-                  src={`http://127.0.0.1:8000/${item.image.indexArray.medium}`}
+                  className="w-[35%] rounded shadow-xl"
+                  src={`${item}`}
                   alt="sub"
                 />
               ))}
@@ -62,7 +62,7 @@ const BookPage = React.forwardRef((props, ref) => {
             <>{props.children}</>
           )}
         </div>
-        <div className="h-[30px] text-stone-700 text-[13px] heading-text">
+        <div className="h-[30px] text-stone-700 text-[13px] heading-text font-bold">
           {props.number}
         </div>
       </div>
