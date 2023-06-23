@@ -4,9 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+/* * {
   cursor: none;
-}
+} */
 
 .heading-text {
   font-family: "Lobster", cursive;
