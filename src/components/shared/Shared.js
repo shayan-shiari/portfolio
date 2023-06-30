@@ -4,7 +4,7 @@ const Shared = ({ image }) => {
   return (
     <div className="book-container">
       <div className="book">
-        <img alt="The Outstanding Developer by Sebastien Castiel" src={image} />
+        <img alt="magic-book" src={image} />
       </div>
     </div>
   );

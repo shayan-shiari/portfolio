@@ -227,13 +227,6 @@
   perspective: 600px;
 }
 
-.book-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 600px;
-}
-
 @keyframes initAnimation {
   0% {
     transform: rotateY(0deg);
@@ -264,6 +257,7 @@
   background-color: red;
   width: 275px;
   height: 400px;
+  cursor: pointer;
   transform: translateZ(32.5px);
   background-color: #01060f;
   border-radius: 0 2px 2px 0;
@@ -500,7 +494,7 @@
 
   .right,
   .left {
-    top: -80px !important;
+    /* top: -80px !important; */
     right: 0 !important;
     left: 0 !important;
     width: 100% !important;

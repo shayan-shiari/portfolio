@@ -48,7 +48,7 @@ const ContactUs = () => {
             <BookPage number="1"></BookPage>
             <BookPage number="2"></BookPage>
           </HTMLFlipBook>
-          <div className="flex justify-between absolute max-[450px]:bottom-[120px] max-[450px]:right-[20px] w-[95%] h-[500px]">
+          <div className="flex justify-between absolute max-[450px]:bottom-[120px] max-[450px]:right-[20px] w-[95%] h-[480px]">
             <div className="p-8 max-[450px]:p-4 w-[50%]">
               <h3 className="text-3xl mb-8 text-blue-400 max-[450px]:text-base">Contact Info</h3>
               <div className="flex flex-col gap-y-4 max-[450px]:text-[10px]">

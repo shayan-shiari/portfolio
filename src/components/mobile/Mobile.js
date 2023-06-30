@@ -43,7 +43,7 @@ const Mobile = () => {
               </BookPage>
             ))}
           </HTMLFlipBook>
-          <div className="mt-2 flex gap-x-4 max-[450px]:absolute max-[450px]:bottom-[62px] max-[450px]:left-[110px]">
+          {/* <div className="mt-2 flex gap-x-4 max-[450px]:absolute max-[450px]:bottom-[62px] max-[450px]:left-[110px]">
             <button
               onClick={() => book.current.pageFlip().flipPrev()}
               type="button"
@@ -76,7 +76,7 @@ const Mobile = () => {
                 ></path>
               </svg>
             </button>
-          </div>
+          </div> */}
         </MainBook>
       )}
     </>
