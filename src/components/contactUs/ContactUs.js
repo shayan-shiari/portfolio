@@ -5,7 +5,7 @@ import BookPage from "../../core-ui/BookPage";
 import HTMLFlipBook from "react-pageflip";
 import MainBook from "../../core-ui/MainBook";
 import emailjs from "@emailjs/browser";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const ContactUs = () => {
   const form = useRef();
@@ -37,8 +37,6 @@ const ContactUs = () => {
 
   return (
     <>
-      <Toaster position="top-center" />
-
       <div onClick={openHandler}>
         <Shared image={img} />
       </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { fetchApi } from "../../../services/api";
+import { toast } from "react-hot-toast";
 
 const AddImage = ({ open, fetchPosts, id }) => {
   const register_url = `admin/gallery/${id}`;
@@ -12,7 +13,7 @@ const AddImage = ({ open, fetchPosts, id }) => {
     formData.append("id", id);
     formData.append("image", image);
     fetchApi(register_url, formData, "multi").then((res) => {
-      console.log(res);
+      toast.success(res.message);
       open(false);
       fetchPosts();
     });

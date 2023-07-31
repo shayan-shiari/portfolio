@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import BookPage from "../../core-ui/BookPage";
 import HTMLFlipBook from "react-pageflip";
 import MainBook from "../../core-ui/MainBook";
-import dataa from "../../data.json";
 
 const Web = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,16 +29,16 @@ const Web = () => {
       {isOpen && (
         <MainBook open={setIsOpen}>
           <HTMLFlipBook ref={book} width={500} height={600}>
-            {dataa.map((item, index) => (
+            {data.map((item, index) => (
               <BookPage
-                link={item.link}
-                technologies={item.technologies}
-                gallery={item.GalleryImages}
-                image={item.medium}
-                title={item.title}
+                link={item.attributes.link}
+                technologies={item.attributes.technologies}
+                gallery={item.galleries.GalleryImages}
+                image={item.attributes.image.indexArray.medium}
+                title={item.attributes.title}
                 number={index + 1}
               >
-                {item.description}
+                {item.attributes.description}
               </BookPage>
             ))}
           </HTMLFlipBook>

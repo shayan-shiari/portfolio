@@ -9,7 +9,7 @@ const AddPost = ({ open, fetchPosts }) => {
   const [type, setType] = useState();
   const [technologies, setTechnologies] = useState();
   const [image, setImage] = useState();
-console.log(type);
+
   const formHandler = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -19,8 +19,7 @@ console.log(type);
     formData.append("type", type ? type : "1");
     formData.append("technologies", technologies);
     formData.append("image", image);
-    fetchApi(register_url, formData, "multi").then((res) => {
-      console.log(res);
+    fetchApi(register_url, formData, "multi").then(() => {
       open(false);
       fetchPosts();
     });
@@ -67,7 +66,11 @@ console.log(type);
                   />
                 </fieldset>
                 <fieldset className="flex items-center flex-col">
-                  <select value={type} onChange={(e) => setType(e.target.value)} className="w-2/3">
+                  <select
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                    className="w-2/3"
+                  >
                     <option value="1">web</option>
                     <option value="2">mobile</option>
                   </select>

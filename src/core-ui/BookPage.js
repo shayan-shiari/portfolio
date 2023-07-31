@@ -1,6 +1,9 @@
 import React from "react";
 
 const BookPage = React.forwardRef((props, ref) => {
+  const main_url = "https://subone.iran.liara.run";
+  console.log(props);
+
   return (
     <div className={`${props.number % 2 === 0 ? "right" : "left"}`} ref={ref}>
       <div className="w-full h-full flex flex-col justify-between items-stretch">
@@ -12,15 +15,15 @@ const BookPage = React.forwardRef((props, ref) => {
             <div className="flex justify-center mb-3">
               <img
                 className="w-[35%] rounded shadow-xl"
-                src={`${props.image}`}
+                src={`${main_url}/${props.image}`}
                 alt="main"
               />
             </div>
             <div className="flex justify-center gap-x-5">
               {props.gallery.map((item) => (
                 <img
-                  className="w-[35%] rounded shadow-xl"
-                  src={`${item}`}
+                  className="w-[22%] rounded shadow-xl"
+                  src={`${main_url}/${item.image.indexArray.small}`}
                   alt="sub"
                 />
               ))}
@@ -30,7 +33,11 @@ const BookPage = React.forwardRef((props, ref) => {
         {props.aboutImage && (
           <div className="bg-contain bg-center bg-no-repeat">
             <div className="flex justify-center">
-              <img className="w-[65%] rounded shadow-md" src={props.aboutImage} alt="about-us" />
+              <img
+                className="w-[65%] rounded shadow-md"
+                src={`${props.aboutImage}`}
+                alt="about-us"
+              />
             </div>
           </div>
         )}
@@ -38,7 +45,7 @@ const BookPage = React.forwardRef((props, ref) => {
         <div className="h-[70%] flex-grow-[1] flex flex-col gap-y-[15px] text-justify mt-[10px] pt-[10px] box-border text-[12px]">
           {props.technologies || props.link ? (
             <>
-              <hr class="w-52 h-[2px] my-2 mx-auto bg-gray-400 border-0 rounded" />
+              <hr className="w-52 h-[2px] my-2 mx-auto bg-gray-400 border-0 rounded" />
               <div>
                 <p className="inline text-white font-bold bg-blue-500 p-1 rounded-lg mr-1">
                   Description:

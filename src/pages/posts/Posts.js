@@ -4,8 +4,10 @@ import AddPost from "./add-modal/AddPost";
 import AddImage from "./add-image/AddImage";
 import { fetchApi } from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Posts = () => {
+  const main_url = "https://subone.iran.liara.run";
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
@@ -14,12 +16,14 @@ const Posts = () => {
 
   const deleteHandler = (id) => {
     console.log(id);
-    fetchApi(`admin/post/${id}`, "delete").then((res) => console.log(res));
+    fetchApi(`admin/post/${id}`, "delete").then((res) => {
+      toast.success(res.message);
+      fetchPosts();
+    });
   };
 
   const fetchPosts = () => {
     fetchApi("admin/post").then((res) => {
-      console.log(res);
       setData(res.data);
     });
   };
@@ -94,7 +98,7 @@ const Posts = () => {
                     <td className="px-6 py-4 flex justify-center">
                       <img
                         className="w-20 rounded"
-                        src={`http://127.0.0.1:8000/${item.attributes.image.indexArray.small}`}
+                        src={`${main_url}/${item.attributes.image.indexArray.small}`}
                         alt="post"
                       />
                     </td>
