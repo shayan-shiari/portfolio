@@ -5,7 +5,7 @@ export const fetchApi = async (url, body, type) => {
   let lastResult;
   // token
   let token = JSON.parse(localStorage.getItem("token"));
-  console.log(token);
+  
   if (type === "multi") {
     await axios
       .post(`${main_url}/${url}`, body, {

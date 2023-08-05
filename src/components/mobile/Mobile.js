@@ -1,8 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import img from "../../assets/images/mobile.jpg";
 import Shared from "../shared/Shared";
 import { fetchApi } from "../../services/api";
-import { useEffect } from "react";
 import BookPage from "../../core-ui/BookPage";
 import HTMLFlipBook from "react-pageflip";
 import MainBook from "../../core-ui/MainBook";
@@ -34,7 +33,7 @@ const Mobile = () => {
                 link={item.attributes.link}
                 technologies={item.attributes.technologies}
                 gallery={item.galleries.GalleryImages}
-                image={item.attributes.image.indexArray.medium}
+                image={item.attributes.image}
                 title={item.attributes.title}
                 number={index + 1}
               >

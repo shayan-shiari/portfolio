@@ -7,23 +7,24 @@ const BookPage = React.forwardRef((props, ref) => {
   return (
     <div className={`${props.number % 2 === 0 ? "right" : "left"}`} ref={ref}>
       <div className="w-full h-full flex flex-col justify-between items-stretch">
-        <h2 className="h-[30px] text-gray-700 text-center mb-[10px] uppercase font-bold">
+        <h2 className="h-[30px] text-gray-700 text-center mb-[6px] uppercase font-bold">
           {props.title}
         </h2>
         {props.gallery && (
           <div className="h-full bg-contain bg-center bg-no-repeat">
-            <div className="flex justify-center mb-3">
+            <div className="flex justify-center mb-2">
               <img
-                className="w-[35%] rounded shadow-xl"
+                className="w-[50%] h-[110px] rounded shadow-xl"
                 src={`${main_url}/${props.image}`}
                 alt="main"
               />
             </div>
             <div className="flex justify-center gap-x-5">
-              {props.gallery.map((item) => (
+              {props.gallery?.map((item) => (
                 <img
-                  className="w-[22%] rounded shadow-xl"
-                  src={`${main_url}/${item.image.indexArray.small}`}
+                  key={item.image}
+                  className="w-24 h-52 rounded shadow-xl"
+                  src={`${main_url}/${item.image}`}
                   alt="sub"
                 />
               ))}
@@ -42,10 +43,10 @@ const BookPage = React.forwardRef((props, ref) => {
           </div>
         )}
 
-        <div className="h-[70%] flex-grow-[1] flex flex-col gap-y-[15px] text-justify mt-[10px] pt-[10px] box-border text-[12px]">
+        <div className="h-[48%] flex-grow-[1] flex flex-col gap-y-[15px] text-justify mt-[10px] pt-[10px] box-border text-[12px]">
           {props.technologies || props.link ? (
             <>
-              <hr className="w-52 h-[2px] my-2 mx-auto bg-gray-400 border-0 rounded" />
+              <hr className="w-52 h-[2px]  mx-auto bg-gray-400 border-0 rounded" />
               <div>
                 <p className="inline text-white font-bold bg-blue-500 p-1 rounded-lg mr-1">
                   Description:
@@ -58,12 +59,12 @@ const BookPage = React.forwardRef((props, ref) => {
                 </p>
                 {props.technologies}
               </div>
-              <div>
+              {/* <div>
                 <p className="inline text-white font-bold bg-blue-500 p-1 rounded-lg mr-1">
                   Link:
                 </p>
                 {props.link}
-              </div>
+              </div> */}
             </>
           ) : (
             <>{props.children}</>
