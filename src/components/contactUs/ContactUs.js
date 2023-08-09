@@ -26,7 +26,7 @@ const ContactUs = () => {
       )
       .then(
         (result) => {
-          toast.success('Successfully sent!')
+          toast.success("Successfully sent!");
           // console.log(result.text);
         },
         (error) => {
@@ -48,26 +48,38 @@ const ContactUs = () => {
           </HTMLFlipBook>
           <div className="flex justify-between absolute max-[450px]:bottom-[120px] max-[450px]:right-[20px] w-[95%] h-[480px]">
             <div className="p-8 max-[450px]:p-4 w-[50%]">
-              <h3 className="text-3xl mb-8 text-blue-400 max-[450px]:text-base">Contact Info</h3>
+              <h3 className="text-3xl mb-8 text-blue-400 max-[450px]:text-base">
+                Contact Info
+              </h3>
               <div className="flex flex-col gap-y-4 max-[450px]:text-[10px]">
                 <div>
                   <div className="flex items-center text-gray-600">
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <p>Email</p>
+                    <ion-icon name="mail-outline" size="large"></ion-icon>
+                    <p className="text-xl">Email</p>
                   </div>
                   <p>suboneteam@gmail.com</p>
                 </div>
                 <div>
                   <div className="flex items-center text-gray-600">
-                    <ion-icon name="call-outline"></ion-icon>
-                    <p>Phone</p>
+                    <ion-icon name="logo-linkedin" size="large"></ion-icon>
+                    <p className="text-xl">Linkedin</p>
                   </div>
-                  {/* <p>09453563467</p> */}
+                  <p
+                    className="cursor-pointer"
+                    onClick={() => {
+                      window.location.href =
+                        "https://www.linkedin.com/company/subone-team";
+                    }}
+                  >
+                    subone-team
+                  </p>
                 </div>
               </div>
             </div>
             <div className="w-[50%] p-8 max-[450px]:p-4">
-              <h3 className="text-3xl text-blue-400 mb-8 max-[450px]:text-base">Contact Us</h3>
+              <h3 className="text-3xl text-blue-400 mb-8 max-[450px]:text-base">
+                Contact Us
+              </h3>
               <form
                 form
                 ref={form}

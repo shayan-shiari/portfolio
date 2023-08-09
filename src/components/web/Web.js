@@ -1,4 +1,4 @@
-import React, { useState, useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import img from "../../assets/images/web.jpg";
 import Shared from "../shared/Shared";
 import { fetchApi } from "../../services/api";
