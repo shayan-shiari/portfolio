@@ -19,7 +19,7 @@ const ContactUs = () => {
 
     emailjs
       .sendForm(
-        "service_g9tlya9",
+        "service_6h1fj0s",
         "template_c41he48",
         form.current,
         "HLmYYA7xmGRU-jOTD"
@@ -72,6 +72,34 @@ const ContactUs = () => {
                     }}
                   >
                     subone-team
+                  </p>
+                </div>
+                <div>
+                  <div className="flex items-center text-gray-600">
+                    <ion-icon name="logo-twitter" size="large"></ion-icon>
+                    <p className="text-xl">Twitter</p>
+                  </div>
+                  <p
+                    className="cursor-pointer"
+                    onClick={() => {
+                      window.location.href = "https://twitter.com/SuboneTeam";
+                    }}
+                  >
+                    suboneteam
+                  </p>
+                </div>
+                <div>
+                  <div className="flex items-center text-gray-600">
+                    <p className="text-3xl mr-1">Fi</p>
+                    <p className="text-xl">Fiverr</p>
+                  </div>
+                  <p
+                    className="cursor-pointer"
+                    onClick={() => {
+                      window.location.href = "https://www.fiverr.com/suboneteam";
+                    }}
+                  >
+                    suboneteam
                   </p>
                 </div>
               </div>
